@@ -2,6 +2,10 @@ package hh.learnweb.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class User {
     private Long id;
 
@@ -51,6 +55,8 @@ public class User {
         this.userCreated = userCreated;
     }
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")  
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getDateCreated() {
         return dateCreated;
     }
@@ -67,6 +73,8 @@ public class User {
         this.userUpdated = userUpdated;
     }
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")  
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getLastUpdated() {
         return lastUpdated;
     }
