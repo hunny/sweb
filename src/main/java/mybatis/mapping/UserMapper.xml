@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hh.learnweb.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="hh.learnweb.model.User">
+		<id column="ID" property="id" jdbcType="BIGINT" />
+		<result column="USERNAME" property="username" jdbcType="VARCHAR" />
+		<result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+		<result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
+		<result column="USER_CREATED" property="userCreated" jdbcType="BIGINT" />
+		<result column="DATE_CREATED" property="dateCreated" jdbcType="TIMESTAMP" />
+		<result column="USER_UPDATED" property="userUpdated" jdbcType="BIGINT" />
+		<result column="LAST_UPDATED" property="lastUpdated" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, USERNAME, PASSWORD, USER_CREATED, DATE_CREATED, USER_UPDATED,
+		LAST_UPDATED, NICK_NAME
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where ID = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from t_user
+		where ID = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="hh.learnweb.model.User">
+		insert into t_user (ID, USERNAME, PASSWORD,
+		USER_CREATED, DATE_CREATED, USER_UPDATED,
+		LAST_UPDATED, NICK_NAME)
+		values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{userCreated,jdbcType=BIGINT}, #{dateCreated,jdbcType=TIMESTAMP}, #{userUpdated,jdbcType=BIGINT},
+		#{lastUpdated,jdbcType=TIMESTAMP}, #{nickName,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="hh.learnweb.model.User">
+		insert into t_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="username != null">
+				USERNAME,
+			</if>
+			<if test="password != null">
+				PASSWORD,
+			</if>
+			<if test="userCreated != null">
+				USER_CREATED,
+			</if>
+			<if test="dateCreated != null">
+				DATE_CREATED,
+			</if>
+			<if test="userUpdated != null">
+				USER_UPDATED,
+			</if>
+			<if test="lastUpdated != null">
+				LAST_UPDATED,
+			</if>
+			<if test="nickName != null">
+				NICK_NAME,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="userCreated != null">
+				#{userCreated,jdbcType=BIGINT},
+			</if>
+			<if test="dateCreated != null">
+				#{dateCreated,jdbcType=TIMESTAMP},
+			</if>
+			<if test="userUpdated != null">
+				#{userUpdated,jdbcType=BIGINT},
+			</if>
+			<if test="lastUpdated != null">
+				#{lastUpdated,jdbcType=TIMESTAMP},
+			</if>
+			<if test="nickName != null">
+				#{nickName,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="hh.learnweb.model.User">
+		update t_user
+		<set>
+			<if test="username != null">
+				USERNAME = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				PASSWORD = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="userCreated != null">
+				USER_CREATED = #{userCreated,jdbcType=BIGINT},
+			</if>
+			<if test="dateCreated != null">
+				DATE_CREATED = #{dateCreated,jdbcType=TIMESTAMP},
+			</if>
+			<if test="userUpdated != null">
+				USER_UPDATED = #{userUpdated,jdbcType=BIGINT},
+			</if>
+			<if test="lastUpdated != null">
+				LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP},
+			</if>
+			<if test="nickName != null">
+				NICK_NAME = #{nickName,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="hh.learnweb.model.User">
+		update t_user
+		set USERNAME = #{username,jdbcType=VARCHAR},
+		PASSWORD = #{password,jdbcType=VARCHAR},
+		USER_CREATED = #{userCreated,jdbcType=BIGINT},
+		DATE_CREATED = #{dateCreated,jdbcType=TIMESTAMP},
+		USER_UPDATED = #{userUpdated,jdbcType=BIGINT},
+		LAST_UPDATED = #{lastUpdated,jdbcType=TIMESTAMP},
+		NICK_NAME = #{nickName,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+</mapper>
