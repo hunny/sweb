@@ -3,8 +3,7 @@ package hh.learnweb.controller;
 import hh.learnweb.model.User;
 import hh.learnweb.service.IUserService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("userController")
 public class UserController {
 	
-	private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
+	private Logger logger = Logger.getLogger(this.getClass());
 	
 	@Autowired
 	private IUserService userService;

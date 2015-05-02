@@ -103,23 +103,11 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.8.5</version>
 		</dependency>
-		<!-- 以下三个org.slf4j包引入，解决Spring加载resource下的log4j.xml配置文件 -->
+		<!-- log4j.xml配置文件 -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.12</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.7.12</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.12</version>
-			<scope>runtime</scope>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
 		</dependency>
 		<!-- spring与junit整合的单元测试使用包 -->
 		<dependency>
