@@ -3,7 +3,7 @@
 	<display-name>Archetype Created Web Application</display-name>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring-*.xml</param-value>
+		<param-value>classpath:spring-base.xml,classpath:spring-mybatis.xml</param-value>
 	</context-param>
 	<filter>
 		<description>字符集过滤器</description>
@@ -25,6 +25,7 @@
 	</listener>
 	<!-- 防止spring内存溢出监听器 -->
 	<listener>
+		<description>防止spring内存溢出监听器</description>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 	<!-- spring mvc servlet -->
@@ -35,7 +36,7 @@
 		<init-param>
 			<description>spring mvc 配置文件</description>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring-mvc.xml</param-value>
+			<param-value>classpath:dispatcher-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -44,7 +45,7 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>/index.html</welcome-file>
+		<welcome-file>/index.htm</welcome-file>
 		<welcome-file>/index.jsp</welcome-file>
 	</welcome-file-list>
 	<!-- 配置session超时时间，单位分钟 -->

@@ -33,7 +33,7 @@ public class UserController {
 	}
 	
 	//1/showUserForJson.do
-	@RequestMapping(value="{id}/showUserForJson", method=RequestMethod.GET)
+	@RequestMapping(value="{id}/showUserForJson", method=RequestMethod.GET, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public User showUserForJson(@PathVariable("id") Long id) {
 		logger.debug("showUserForJson");
