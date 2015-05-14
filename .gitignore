@@ -1,1 +1,8 @@
+*.class
+*.gitignore
+*.class
+*.DS_Store
+*.log
+/target/*/target
+/target
 /target/

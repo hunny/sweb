@@ -54,7 +54,7 @@ public class UserController {
 	
     // same as above method, just showing different URL mapping
 	//showUserFromParam.do?id=1
-    @RequestMapping(value="showUserFromParam", params="id")
+    @RequestMapping(value="showUserFromParam", params="id", method={RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
     public User getByIdFromParam(@RequestParam Long id) {
         return userService.findUserById(id);

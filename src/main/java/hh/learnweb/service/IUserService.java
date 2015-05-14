@@ -6,4 +6,6 @@ public interface IUserService {
 
 	public User findUserById(Long id);
 	
+	public int insertUser(User user);
+	
 }
