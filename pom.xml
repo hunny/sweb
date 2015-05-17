@@ -132,6 +132,16 @@
 		    <artifactId>axis</artifactId>
 		    <version>1.4</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.jasig.cas.client</groupId>
+		    <artifactId>cas-client-core</artifactId>
+		    <version>3.3.3</version>
+		</dependency>
+		<dependency> 
+		    <groupId>xml-apis</groupId>
+		    <artifactId>xml-apis</artifactId>
+		    <version>1.4.01</version>
+		</dependency>
 		<!-- spring与junit整合的单元测试使用包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>

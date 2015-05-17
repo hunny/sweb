@@ -3,7 +3,12 @@ package hh.learnweb.controller;
 import hh.learnweb.model.User;
 import hh.learnweb.service.IUserService;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
+import org.jasig.cas.client.authentication.AttributePrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +26,22 @@ public class UserController {
 	
 	@Autowired
 	private IUserService userService;
+	
+	//showUser.do?id=1
+	@RequestMapping(value="showLoginUser", method=RequestMethod.GET)
+	public String showLoginUser(HttpServletRequest request, Model model) {
+		AttributePrincipal principal = (AttributePrincipal) request.getUserPrincipal();
+		String name = "";
+		if (null != principal) {
+			Map<String, Object> attributes = principal.getAttributes();
+			String username = (String)attributes .get("username");
+			logger.info("username:" + username);
+			logger.info("attribute:" + attributes);
+			name = principal.getName();
+		}
+		model.addAttribute("name", name);
+		return "showLoginUser";
+	}
 	
 	//showUser.do?id=1
 	@RequestMapping(value="showUser", method=RequestMethod.GET)
